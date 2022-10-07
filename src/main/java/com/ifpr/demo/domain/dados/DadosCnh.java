@@ -25,9 +25,35 @@ public class DadosCnh {
                 categoriaCNH);
     }
 
+    public String getNumeroRegistro() {
+        return numeroRegistro;
+    }
 
+    public void setNumeroRegistro(String numeroRegistro) {
+        this.numeroRegistro = numeroRegistro;
+    }
 
+    public LocalDate getDataValidade() {
+        return dataValidade;
+    }
 
+    public void setDataValidade(LocalDate dataValidade) {
+        this.dataValidade = dataValidade;
+    }
 
+    public LocalDate getDataPrimeiraHabilitacao() {
+        return dataPrimeiraHabilitacao;
+    }
 
+    public void setDataPrimeiraHabilitacao(LocalDate dataPrimeiraHabilitacao) {
+        this.dataPrimeiraHabilitacao = dataPrimeiraHabilitacao;
+    }
+
+    public CategoriaCNH getCategoriaCNH() {
+        return categoriaCNH;
+    }
+
+    public void setCategoriaCNH(CategoriaCNH categoriaCNH) {
+        this.categoriaCNH = categoriaCNH;
+    }
 }
