@@ -14,6 +14,8 @@ public class Cliente {
 	private CNH cnh;
 	private Date dataNascimento;
 	
+	public Cliente() {}
+
 	public Cliente(String nome, String email, String telefone, String cpf, CNH cnh, Date dataNascimento ) {
 		this.nome = nome;
 		this.email = email;
