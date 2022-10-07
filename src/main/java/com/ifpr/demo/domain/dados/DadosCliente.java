@@ -26,7 +26,7 @@ public class DadosCliente {
               email,
               telefone,
               cpf,
-              cnh,
+              cnh.dadosToEntity(),
               dataNascimento);
   }
 
