@@ -4,6 +4,7 @@ import com.ifpr.demo.domain.dados.DadosCarro;
 import com.ifpr.demo.domain.dados.TipoCombustivel;
 import com.ifpr.demo.domain.erro.DadosInconsistentes;
 import com.ifpr.demo.domain.erro.KmMaximaAtingida;
+import com.ifpr.demo.domain.casosUso.ConsultarPlaca;
 
 public class Carro {
     String modelo;
@@ -73,7 +74,7 @@ public class Carro {
     }
 
     private boolean validarDadosSensiveis() {
-        DadosCarro dadosOficiais = new BuscarDadosCarro().buscarPelaPlaca(placa);
+        DadosCarro dadosOficiais = new ConsultarPlaca().buscarPelaPlaca(placa);
 
         if (dadosOficiais.getAnoFabricacao() != anoFabricacao &&
                 dadosOficiais.getAnoModelo() != anoModelo &&
