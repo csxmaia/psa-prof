@@ -1,3 +1,11 @@
+package com.ifpr.demo.domain.entidade;
+
+import com.ifpr.demo.domain.dados.DadosCliente;
+import com.ifpr.demo.domain.erro.CnhInvalida;
+import com.ifpr.demo.domain.erro.IdadeNaoPermitida;
+
+import java.util.Date;
+
 public class Cliente {
 	private String nome;
 	private String email;
@@ -15,17 +23,21 @@ public class Cliente {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	public void cadastrar(DadosCliente dadosCliente) throws validarIdade {
+	public void cadastrar(DadosCliente dadosCliente) throws IdadeNaoPermitida, CnhInvalida {
 		String nome = dadosCliente.getNome();
 		String email = dadosCliente.getEmail();
 		String telefone = dadosCliente.getTelefone();
 		String cpf = dadosCliente.getCpf();
+		Date dataNascimento = dadosCliente.getDataNascimento();
 		
-		if(validaridade()) {
-			throw new validarIdade();
+		if(!validarIdade()) {
+			throw new IdadeNaoPermitida();
 		}
-		if(validarCNH()) {
-			throw new validarCNH();
+
+		CNH cnh = this.cnh;
+
+		if(!cnh.validarCNH()) {
+			throw new CnhInvalida();
 		}
 		
 		this.nome = nome;
@@ -37,15 +49,16 @@ public class Cliente {
 	}
 	
 	private boolean validarIdade() {
-		int anoAtual = DateTime.now().year;
+		int anoAtual = new Date().getYear();
 
-	    int anoNascimento = dataNascimento.year;
+		int anoNascimento = dataNascimento.getYear();
 
-	    int idade = anoAtual - anoNascimento;
-	    if (idade >= 21) {
-	      return true;
-	    } else {
-	      return false;
-	    }
+		int idade = anoAtual - anoNascimento;
+
+		if (idade >= 21) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
