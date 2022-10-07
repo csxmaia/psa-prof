@@ -2,6 +2,7 @@ package com.ifpr.demo.domain.entidade;
 
 import com.ifpr.demo.domain.dados.DadosCarro;
 import com.ifpr.demo.domain.dados.DadosCliente;
+import com.ifpr.demo.domain.dados.DadosLocacao;
 
 
 import java.util.Date;
@@ -43,8 +44,8 @@ public class Locacao {
     public void cadastrar(DadosLocacao dadosLocacao) {
 
 
-        Carro carro = dadosLocacao.getCarro();
-        Cliente cliente = dadosLocacao.getCliente();
+        DadosCarro carro = dadosLocacao.getCarro();
+        DadosCliente cliente = dadosLocacao.getCliente();
         Date dataLocacao = dadosLocacao.getDataLocacao();
         double quilometragemLocacao = dadosLocacao.getQuilometragemLocacao();
         double valorCalcao = dadosLocacao.getValorCalcao();
@@ -55,6 +56,15 @@ public class Locacao {
 
         valorLocacao = calcularValorFinal(cliente, carro);
 
+        this.carro = carro.dadosToEntity();
+        this.cliente = cliente.dadosToEntity();
+        this.dataLocacao = dataLocacao;
+        this.quilometragemLocacao = quilometragemLocacao;
+        this.valorCalcao = valorCalcao;
+        this.valorLocacao = valorLocacao;
+        this.devolvido = devolvido;
+        this.dataDevolucao = dataDevolucao;
+        this.quilometragemDevolucao = quilometragemDevolucao;
     }
 
     // desconto com base no tempo de cnh (Exemplo: 0,5% de desconto por ano de cnh)
@@ -63,7 +73,7 @@ public class Locacao {
         Cliente cliente = dadosCliente.dadosToEntity();
         Carro carro = dadosCarro.dadosToEntity();
 
-        int anosDeCnh = cliente.cnh.anosDeCnh();
+        int anosDeCnh = cliente.getCnh().anosDeCnh();
         double valorBase = carro.valorBaseLocacao;
 
         double valorFinal = valorBase - valorBase * (0.5 * anosDeCnh);

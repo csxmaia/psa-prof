@@ -98,7 +98,7 @@ public class DadosLocacao {
 		this.valorLocacao = valorLocacao;
 	}
 
-	public boolean isDevolvido() {
+	public boolean getDevolvido() {
 		return devolvido;
 	}
 
