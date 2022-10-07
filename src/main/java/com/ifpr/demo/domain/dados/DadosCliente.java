@@ -2,6 +2,8 @@ package com.ifpr.demo.domain.dados;
 
 import com.ifpr.demo.domain.entidade.Cliente;
 
+import java.util.Date;
+
 public class DadosCliente {
   private String nome;
   private String email;
@@ -27,7 +29,52 @@ public class DadosCliente {
               cnh,
               dataNascimento);
   }
-  
-  
-  
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public DadosCnh getCnh() {
+        return cnh;
+    }
+
+    public void setCnh(DadosCnh cnh) {
+        this.cnh = cnh;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 }
