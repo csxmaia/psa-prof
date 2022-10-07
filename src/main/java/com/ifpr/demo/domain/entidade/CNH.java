@@ -1,6 +1,7 @@
 package com.ifpr.demo.domain.entidade;
 
 import com.ifpr.demo.domain.dados.CategoriaCNH;
+import com.ifpr.demo.domain.dados.DadosCnh;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -18,6 +19,13 @@ public class CNH {
         this.dataValidade = dataValidade;
         this.dataPrimeiraHabilitacao = dataPrimeiraHabilitacao;
         this.categoriaCNH = categoriaCNH;
+    }
+
+    public DadosCnh dadosToDadosCNH() {
+        return new DadosCnh(numeroRegistro,
+                dataValidade,
+                dataPrimeiraHabilitacao,
+                categoriaCNH);
     }
 
     public boolean validarCNH() {

@@ -1,3 +1,6 @@
+import com.ifpr.demo.domain.dados.DadosCliente;
+import com.ifpr.demo.domain.portas.EnviarEmail;
+
 public class notificar_cliente {
     
     DadosCliente dadosCliente;
