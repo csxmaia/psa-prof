@@ -1,5 +1,6 @@
 package com.ifpr.demo.domain.dados;
 
+import com.ifpr.demo.domain.dados.enums.DadosTipoCombustivelEnum;
 import com.ifpr.demo.domain.entidade.Carro;
 
 public class DadosCarro {
@@ -13,12 +14,12 @@ public class DadosCarro {
     private int renavam;
     private String chassis;
     private String categoria;
-    private TipoCombustivel tipoCombustivel;
+    private DadosTipoCombustivelEnum tipoCombustivel;
     private int potenciaCv;
     private boolean disponivel;
 
     public DadosCarro(String modelo, double valorBaseLocacao, int quilometragem, int anoFabricacao, int anoModelo,
-                      String placa, int renavam, String chassis, String categoria, TipoCombustivel tipoCombustivel,
+                      String placa, int renavam, String chassis, String categoria, DadosTipoCombustivelEnum tipoCombustivel,
                       int potenciaCv, boolean disponivel) {
         this.modelo = modelo;
         this.valorBaseLocacao = valorBaseLocacao;
@@ -44,7 +45,7 @@ public class DadosCarro {
                 renavam,
                 chassis,
                 categoria,
-                tipoCombustivel,
+                tipoCombustivel.toTipoCombustivelEnum(),
                 potenciaCv,
                 disponivel);
     }
@@ -121,12 +122,12 @@ public class DadosCarro {
         this.categoria = categoria;
     }
 
-    public TipoCombustivel getTipoCombustivel() {
+    public DadosTipoCombustivelEnum getTipoCombustivel() {
         return tipoCombustivel;
     }
 
-    public void setTipoCombustivel(TipoCombustivel tipoCombustivel) {
-        this.tipoCombustivel = tipoCombustivel;
+    public void setTipoCombustivel(DadosTipoCombustivelEnum tipoCombustivelEnum) {
+        this.tipoCombustivel = tipoCombustivelEnum;
     }
 
     public int getPotenciaCv() {

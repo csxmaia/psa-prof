@@ -3,7 +3,7 @@ package com.ifpr.demo.domain.adaptador;
 import javax.persistence.*;
 
 import com.ifpr.demo.domain.dados.DadosCarro;
-import com.ifpr.demo.domain.dados.TipoCombustivel;
+import com.ifpr.demo.domain.dados.enums.DadosTipoCombustivelEnum;
 
 @Entity
 public class CarroEntidade {
@@ -40,7 +40,7 @@ public class CarroEntidade {
     private String categoria;
 
     @Column()
-    private TipoCombustivel tipoCombustivel;
+    private DadosTipoCombustivelEnum tipoCombustivel;
 
     @Column()
     private int potenciaCv;

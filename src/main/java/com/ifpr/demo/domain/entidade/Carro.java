@@ -1,7 +1,7 @@
 package com.ifpr.demo.domain.entidade;
 
 import com.ifpr.demo.domain.dados.DadosCarro;
-import com.ifpr.demo.domain.dados.TipoCombustivel;
+import com.ifpr.demo.domain.dados.TipoCombustivelEnum;
 import com.ifpr.demo.domain.erro.DadosInconsistentes;
 import com.ifpr.demo.domain.erro.KmMaximaAtingida;
 import com.ifpr.demo.domain.casosUso.ConsultarPlaca;
@@ -16,13 +16,13 @@ public class Carro {
     int renavam;
     String chassis;
     String categoria;
-    TipoCombustivel tipoCombustivel;
+    TipoCombustivelEnum tipoCombustivel;
     int potenciaCv;
     boolean disponivel;
 
     public Carro(String modelo, double valorBaseLocacao, int quilometragem, int anoFabricacao,
                  int anoModelo, String placa, int renavam, String chassis, String categoria,
-                 TipoCombustivel tipoCombustivel, int potenciaCv, boolean disponivel) {
+                 TipoCombustivelEnum tipoCombustivel, int potenciaCv, boolean disponivel) {
         this.modelo = modelo;
         this.valorBaseLocacao = valorBaseLocacao;
         this.quilometragem = quilometragem;
@@ -47,7 +47,9 @@ public class Carro {
         int renavam = dadosCarro.getRenavam();
         String chassis = dadosCarro.getChassis();
         String categoria = dadosCarro.getCategoria();
-        TipoCombustivel tipoCombustivel = dadosCarro.getTipoCombustivel();
+        TipoCombustivelEnum tipoCombustivel = TipoCombustivelEnum.FLEX;
+        tipoCombustivel.setValor(dadosCarro.getTipoCombustivel().getValor());
+        dadosCarro.getTipoCombustivel().getValor();
         int potenciaCv = dadosCarro.getPotenciaCv();
         boolean disponivel = dadosCarro.getDisponivel();
 
@@ -81,7 +83,7 @@ public class Carro {
                 dadosOficiais.getPlaca() != placa &&
                 dadosOficiais.getRenavam() != renavam &&
                 dadosOficiais.getChassis() != chassis &&
-                dadosOficiais.getTipoCombustivel() != tipoCombustivel) {
+                dadosOficiais.getTipoCombustivel().getValor() != tipoCombustivel.getValor()) {
             return true;
         }
         return false;
