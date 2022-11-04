@@ -53,7 +53,7 @@ public class Cliente {
 	private boolean validarIdade() {
 		int anoAtual = new Date().getYear();
 
-		int anoNascimento = dataNascimento.getYear();
+		int anoNascimento = this.dataNascimento.getYear();
 
 		int idade = anoAtual - anoNascimento;
 
