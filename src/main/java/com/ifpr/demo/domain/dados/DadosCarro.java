@@ -35,7 +35,7 @@ public class DadosCarro {
         this.disponivel = disponivel;
     }
 
-    public Carro dadosToEntity() {
+    public Carro toEntity() {
         return new Carro(modelo,
                 valorBaseLocacao,
                 quilometragem,

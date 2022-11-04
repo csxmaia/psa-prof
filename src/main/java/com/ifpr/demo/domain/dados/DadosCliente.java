@@ -21,12 +21,12 @@ public class DadosCliente {
 	  this.dataNascimento = dataNascimento;
   }
   
-  public Cliente dadosToEntity() {
+  public Cliente toEntity() {
       return new Cliente(nome,
               email,
               telefone,
               cpf,
-              cnh.dadosToEntity(),
+              cnh.toEntity(),
               dataNascimento);
   }
 

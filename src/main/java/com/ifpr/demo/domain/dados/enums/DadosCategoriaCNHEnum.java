@@ -1,6 +1,6 @@
-package com.ifpr.demo.domain.dados;
+package com.ifpr.demo.domain.dados.enums;
 
-public enum CategoriaCNH {
+public enum DadosCategoriaCNHEnum {
 
     A(1),
     B(2),
@@ -14,7 +14,7 @@ public enum CategoriaCNH {
 
     private int valor;
 
-    CategoriaCNH(int valor) {
+    DadosCategoriaCNHEnum(int valor) {
         this.valor = valor;
     }
 
