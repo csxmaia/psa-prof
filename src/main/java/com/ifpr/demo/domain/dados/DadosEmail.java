@@ -5,6 +5,19 @@ public class DadosEmail {
     String assunto;
     String conteudo;
 
+
+    public String getDestinatario() {
+        return destinatario;
+    }
+
+    public String getAssunto() {
+        return assunto;
+    }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+
     public void setDestinatario(String destinatario) {
         this.destinatario = destinatario;
     }

@@ -18,7 +18,9 @@ public class SalvarCliente {
 
         EnviarEmailCliente enviarEmailCliente = new EnviarEmailCliente(dadosCliente);
         if (clienteRepositorio.salvar(dadosCliente)) {
-        	enviarEmailCliente.enviarEmail("Boas vindas", "Seja bem vindo!");
+            String conteudoEmail = enviarEmailCliente.montaEmailBoasVindas(dadosCliente);
+
+        	enviarEmailCliente.enviarEmail("Boas vindas", conteudoEmail);
         }
     }
 }

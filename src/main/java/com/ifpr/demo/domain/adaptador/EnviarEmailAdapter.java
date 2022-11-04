@@ -2,21 +2,29 @@ package com.ifpr.demo.domain.adaptador;
 
 import com.ifpr.demo.domain.dados.DadosEmail;
 import com.ifpr.demo.domain.portas.EnviarEmail;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 
 public class EnviarEmailAdapter implements EnviarEmail {
-    private String username = "user@gmail.com";
-    private String password = "123123";
+
+    @Autowired
+    private JavaMailSender envioEmailDoJava;
 
     @Override
-    public boolean enviar(DadosEmail dadosEmail) {
-        // Implementação do envio de email
-        // Implementação do envio de email
-        // Implementação do envio de email
-        // Implementação do envio de email
-        if(true) {
-            return true;
+    public void enviar(DadosEmail dadosEmail) {
+
+        SimpleMailMessage email = new SimpleMailMessage();
+
+        email.setTo(dadosEmail.getDestinatario());
+        email.setSubject(dadosEmail.getAssunto());
+        email.setText(dadosEmail.getConteudo());
+
+        try {
+            envioEmailDoJava.send(email);
+        } catch (Exception e) {
+            throw e;
         }
-        return false;
     }
     
 }
