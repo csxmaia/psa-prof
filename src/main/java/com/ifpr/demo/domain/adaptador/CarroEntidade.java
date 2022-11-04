@@ -12,40 +12,40 @@ public class CarroEntidade {
     @Column(name = "id")
     private Long id;
     
-    @Column()
+    @Column(name = "modelo")
     private String modelo;
 
-    @Column()
+    @Column(name = "valor_base_locacao")
     private double valorBaseLocacao;
 
-    @Column()
+    @Column(name = "quilometragem")
     private int quilometragem;
 
-    @Column()
+    @Column(name = "ano_fabricacao")
     private int anoFabricacao;
 
-    @Column()
+    @Column(name = "ano_modelo")
     private int anoModelo;
 
-    @Column()
+    @Column(name = "placa")
     private String placa;
 
-    @Column()
+    @Column(name = "renavam")
     private int renavam;
 
-    @Column()
+    @Column(name = "chassis")
     private String chassis;
 
-    @Column()
+    @Column(name = "categoria")
     private String categoria;
 
-    @Column()
+    @Column(name = "tipo_combustivel_id")
     private TipoCombustivel tipoCombustivel;
 
-    @Column()
+    @Column(name = "potencia_cv")
     private int potenciaCv;
 
-    @Column()
+    @Column(name = "disponivel")
     private boolean disponivel;
 
     public CarroEntidade() {

@@ -13,22 +13,23 @@ public class ClienteEntidade {
     @Column(name = "id")
     private Long id;
 
-    @Column()
+    @Column(name = "nome")
     private String nome;
 
-    @Column()
+    @Column(name = "email")
     private String email;
 
-    @Column()
+    @Column(name = "telefone")
     private String telefone;
 
-    @Column()
+    @Column(name = "cpf")
     private String cpf;
 
-    @Column()
+    @OneToOne
+    @JoinColumn(name = "cnh_id")
     private CNH cnh;
 
-    @Column()
+    @Column(name = "data_nascimento")
     private Date dataNascimento;
 
     public ClienteEntidade() {
