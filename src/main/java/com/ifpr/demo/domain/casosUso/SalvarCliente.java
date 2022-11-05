@@ -7,21 +7,10 @@ import com.ifpr.demo.domain.erro.IdadeNaoPermitida;
 import com.ifpr.demo.domain.portas.ClienteRepositorio;
 
 public class SalvarCliente {
-    DadosCliente dadosCliente;
-    Cliente cliente;
-    EnviarEmailCliente enviarEmailCliente;
     ClienteRepositorio clienteRepositorio;
 
-    SalvarCliente(DadosCliente dadosCliente) throws IdadeNaoPermitida, CnhInvalida {
-        Cliente cliente = new Cliente();
-        cliente.cadastrar(dadosCliente);
-
-        EnviarEmailCliente enviarEmailCliente = new EnviarEmailCliente(dadosCliente);
-        if (clienteRepositorio.salvar(dadosCliente)) {
-            String conteudoEmail = enviarEmailCliente.montaEmailBoasVindas(dadosCliente);
-
-        	enviarEmailCliente.enviarEmail("Boas vindas", conteudoEmail);
-        }
+    boolean save(DadosCliente dadosCliente) {
+        return clienteRepositorio.salvar(dadosCliente);
     }
 }
 
