@@ -1,6 +1,7 @@
 package com.ifpr.demo.domain.adaptador;
 
 import com.ifpr.demo.domain.dados.DadosCliente;
+import com.ifpr.demo.domain.dados.DadosCnh;
 import com.ifpr.demo.domain.entidade.CNH;
 
 import javax.persistence.*;
@@ -27,7 +28,7 @@ public class ClienteEntidade {
 
     @OneToOne
     @JoinColumn(name = "cnh_id")
-    private CNH cnh;
+    private CNHEntidade cnh;
 
     @Column(name = "data_nascimento")
     private Date dataNascimento;
@@ -41,7 +42,7 @@ public class ClienteEntidade {
         this.email = dadosCliente.getEmail();
         this.telefone = dadosCliente.getTelefone();
         this.cpf = dadosCliente.getCpf();
-        this.cnh = dadosCliente.getCnh().toEntity();
+        this.cnh = new CNHEntidade(dadosCliente.getCnh());
         this.dataNascimento = dadosCliente.getDataNascimento();
     }
 
@@ -51,7 +52,7 @@ public class ClienteEntidade {
                 email,
                 telefone,
                 cpf,
-                cnh.dadosToDadosCNH(),
+                cnh.toDadosCnh(),
                 dataNascimento
         );
         return cliente;
@@ -97,11 +98,11 @@ public class ClienteEntidade {
         this.cpf = cpf;
     }
 
-    public CNH getCnh() {
+    public CNHEntidade getCnh() {
         return cnh;
     }
 
-    public void setCnh(CNH cnh) {
+    public void setCnh(CNHEntidade cnh) {
         this.cnh = cnh;
     }
 
