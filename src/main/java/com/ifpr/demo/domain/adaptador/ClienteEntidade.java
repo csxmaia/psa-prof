@@ -41,7 +41,7 @@ public class ClienteEntidade {
         this.email = dadosCliente.getEmail();
         this.telefone = dadosCliente.getTelefone();
         this.cpf = dadosCliente.getCpf();
-        this.cnh = dadosCliente.getCnh().dadosToEntity();
+        this.cnh = dadosCliente.getCnh().toEntity();
         this.dataNascimento = dadosCliente.getDataNascimento();
     }
 

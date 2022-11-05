@@ -1,5 +1,6 @@
 package com.ifpr.demo.domain.dados;
 
+import com.ifpr.demo.domain.dados.enums.DadosCategoriaCNHEnum;
 import com.ifpr.demo.domain.entidade.CNH;
 
 import java.time.LocalDate;
@@ -9,20 +10,20 @@ public class DadosCnh {
     String numeroRegistro;
     LocalDate dataValidade;
     LocalDate dataPrimeiraHabilitacao;
-    CategoriaCNH categoriaCNH;
+    DadosCategoriaCNHEnum dadosCategoriaCNHEnum;
 
-    public DadosCnh(String numeroRegistro, LocalDate dataValidade, LocalDate dataPrimeiraHabilitacao, CategoriaCNH categoriaCNH) {
+    public DadosCnh(String numeroRegistro, LocalDate dataValidade, LocalDate dataPrimeiraHabilitacao, DadosCategoriaCNHEnum dadosCategoriaCNHEnum) {
         this.numeroRegistro = numeroRegistro;
         this.dataValidade = dataValidade;
         this.dataPrimeiraHabilitacao = dataPrimeiraHabilitacao;
-        this.categoriaCNH = categoriaCNH;
+        this.dadosCategoriaCNHEnum = dadosCategoriaCNHEnum;
     }
 
-    public CNH dadosToEntity() {
+    public CNH toEntity() {
         return new CNH(numeroRegistro,
                 dataValidade,
                 dataPrimeiraHabilitacao,
-                categoriaCNH);
+                dadosCategoriaCNHEnum);
     }
 
     public String getNumeroRegistro() {
@@ -49,11 +50,11 @@ public class DadosCnh {
         this.dataPrimeiraHabilitacao = dataPrimeiraHabilitacao;
     }
 
-    public CategoriaCNH getCategoriaCNH() {
-        return categoriaCNH;
+    public DadosCategoriaCNHEnum getCategoriaCNH() {
+        return dadosCategoriaCNHEnum;
     }
 
-    public void setCategoriaCNH(CategoriaCNH categoriaCNH) {
-        this.categoriaCNH = categoriaCNH;
+    public void setCategoriaCNH(DadosCategoriaCNHEnum dadosCategoriaCNHEnum) {
+        this.dadosCategoriaCNHEnum = dadosCategoriaCNHEnum;
     }
 }

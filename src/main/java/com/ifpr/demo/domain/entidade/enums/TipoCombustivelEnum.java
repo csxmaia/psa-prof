@@ -1,6 +1,6 @@
 package com.ifpr.demo.domain.dados;
 
-public enum TipoCombustivel {
+public enum TipoCombustivelEnum {
 
     FLEX(1),
     DIESEL(2),
@@ -10,12 +10,16 @@ public enum TipoCombustivel {
 
     private int valor;
 
-    TipoCombustivel(int valor) {
+    TipoCombustivelEnum(int valor) {
         this.valor = valor;
     }
 
     public int getValor() {
         return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 
 }

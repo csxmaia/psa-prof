@@ -36,10 +36,10 @@ public class DadosLocacao {
 		this.quilometragemDevolucao = quilometragemDevolucao;
 	}
 
-	public Locacao dadosToEntity() {
+	public Locacao toEntity() {
 		return new Locacao(
-				carro.dadosToEntity(),
-				cliente.dadosToEntity(),
+				carro.toEntity(),
+				cliente.toEntity(),
 				dataLocacao,
 				quilometragemLocacao,
 				valorCalcao,
